@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f6f2" />
+  <title>Commonroom — shared campus resources</title>
+  <link rel="stylesheet" href="styles.css?v=phase9-responsive-3" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark">c</span><span>commonroom<small>RESOURCE EXCHANGE</small></span></a>
+    <nav><button class="nav-link active" data-view="discover">Discover</button><button class="nav-link" data-view="requests">My requests <span id="request-count" class="pill">0</span></button><button class="nav-link" data-view="manage">Owner desk</button></nav>
+    <button class="profile" id="profile-button"><span class="avatar" id="avatar">CR</span><span class="profile-copy" id="profile-copy">Sign in<small>ACCESS YOUR ACCOUNT</small></span><span>⌄</span></button>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div><p class="eyebrow">YOUR CAMPUS, SHARED</p><h1>Good things are<br />better <em>in common.</em></h1><p class="hero-copy">Find the space, tools and expertise you need to make your next idea real.</p></div>
+      <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="art-card"><span>OPEN<br />DOORS</span><b>↗</b></div><div class="art-lines"></div></div>
+    </section>
+    <section class="stats"><div><b id="resource-total">—</b><span>available resources</span></div><div><b id="booking-total">—</b><span>your booking requests</span></div><div><b>Human</b><span>owner approval required</span></div><div class="stats-note"><span class="status-dot"></span> <span>Live Commonroom<br /><small>Backend connected</small></span></div></section>
+    <section id="discover-view" class="view">
+      <div class="section-head"><div><p class="eyebrow">MAKE SOMETHING HAPPEN</p><h2>Find your next resource</h2></div><button class="outline-button" id="list-resource">＋ List a resource</button></div>
+      <div class="search-row"><label class="searchbox"><span>⌕</span><input id="search" placeholder="Try “3D printer” or “quiet room”" /></label><select id="category"><option value="all">All resources</option><option>Equipment</option><option>Spaces</option><option>Technology</option></select><label class="searchbox"><span>⌖</span><input id="location" placeholder="Filter by location" /></label></div>
+      <div class="chips"><button class="chip selected" data-filter="all">All <span data-chip-count="all">0</span></button><button class="chip" data-filter="Equipment">Equipment <span data-chip-count="Equipment">0</span></button><button class="chip" data-filter="Spaces">Spaces <span data-chip-count="Spaces">0</span></button><button class="chip" data-filter="Technology">Technology <span data-chip-count="Technology">0</span></button><span class="match-note" id="connection-note">Loading live resources…</span></div>
+      <div id="resource-grid" class="resource-grid"></div>
+    </section>
+    <section id="requests-view" class="view hidden"><div class="section-head"><div><p class="eyebrow">YOUR ACTIVITY</p><h2>My requests</h2></div></div><div id="requests-list" class="request-list"></div><h3 class="audit-title">Reported incidents</h3><div id="my-incidents" class="request-list"></div><h3 class="audit-title">My activity</h3><div id="my-activity-list" class="audit-list"></div></section>
+    <section id="manage-view" class="view hidden"><div class="section-head"><div><p class="eyebrow">RESOURCE OWNER</p><h2>Owner desk</h2></div><span class="owner-tag">Makerspace team</span></div><div class="owner-summary"><div><b id="pending-count">0</b><span>requests to review</span></div><div><b id="active-count">0</b><span>active bookings</span></div><div><b id="incident-count">0</b><span>incidents reported</span></div></div><h3 class="audit-title">My resources</h3><div id="owner-resources" class="request-list"></div><h3 class="audit-title">Booking requests</h3><div id="manage-list" class="request-list"></div><h3 class="audit-title">Reported incidents</h3><div id="owner-incidents" class="request-list"></div><h3 class="audit-title">Recent activity <span>Every action is recorded</span></h3><div id="audit-list" class="audit-list"></div></section>
+    <footer><span>Commonroom <b>·</b> Built for sharing well.</span><span>Campus Makerspace &nbsp;·&nbsp; Privacy first, people always.</span></footer>
+  </main>
+  <dialog id="modal"><form id="modal-form"><button class="close" type="button" aria-label="Close">×</button><div id="modal-content"></div></form></dialog>
+  <div id="toast" role="status"></div>
+  <script src="workflow.js?v=phase9-final-1"></script>
+  <script src="api.js?v=phase9-final-1"></script>
+  <script src="app.js?v=phase9-final-1"></script>
+</body>
+</html>
